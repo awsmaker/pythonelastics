@@ -384,3 +384,55 @@ footer.theme-doc-footer.docusaurus-mt-lg {
 [data-theme='light'] .menu__list-item-collapsible {
   color: var(--ifm-color-primary-darker);
 }
+
+/* Styles pour améliorer la responsivité */
+main {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 0 !important;
+}
+
+/* Ajustement du contenu principal */
+.container {
+  max-width: 100% !important;
+  padding: 1rem !important;
+  margin: 0 !important;
+}
+
+/* Ajustement pour les écrans plus petits */
+@media (max-width: 996px) {
+  .main-wrapper {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0.5rem !important;
+  }
+
+  /* Réduire la taille des textes sur mobile */
+  .theme-doc-markdown {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.8rem !important;
+  }
+
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Assurer que le contenu reste dans les limites de l'écran */
+.row {
+  margin: 0 !important;
+  max-width: 100%;
+}
+
+/* Ajuster la largeur des colonnes */
+.col {
+  padding: 0 !important;
+  max-width: 100%;
+}
