@@ -1,0 +1,386 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+:root {
+  --ifm-color-primary: #00f3ff;
+  --ifm-color-primary-dark: #00dbff;
+  --ifm-color-primary-darker: #00cfff;
+  --ifm-color-primary-darkest: #00aaff;
+  --ifm-color-primary-light: #1af4ff;
+  --ifm-color-primary-lighter: #26f5ff;
+  --ifm-color-primary-lightest: #4df6ff;
+  --ifm-code-font-size: 95%;
+  --ifm-footer-background-color: rgba(8, 11, 15, 0.95);
+  --ifm-footer-link-color: #4facfe;
+  --ifm-footer-title-color: #00f2fe;
+  --footer-glow-color: rgba(0, 242, 254, 0.15);
+}
+
+/* Mode clair - couleurs ajustées */
+[data-theme='light'] {
+  --ifm-color-primary: #0070f3;        /* Bleu plus foncé */
+  --ifm-color-primary-dark: #0061d9;
+  --ifm-color-primary-darker: #0054bf;
+  --ifm-color-primary-darkest: #003c87;
+  --ifm-color-primary-light: #1a85ff;
+  --ifm-color-primary-lighter: #3d94ff;
+  --ifm-color-primary-lightest: #66a9ff;
+  --ifm-link-color: #0070f3;           /* Liens plus foncés */
+  --ifm-menu-color-active: #0070f3;    /* Menu actif plus foncé */
+  --ifm-navbar-link-hover-color: #0070f3;
+}
+
+/* Mode sombre - garde les couleurs actuelles */
+[data-theme='dark'] {
+  --ifm-color-primary: #00f3ff;
+  --ifm-color-primary-dark: #00dbff;
+  --ifm-color-primary-darker: #00cfff;
+  --ifm-color-primary-darkest: #00aaff;
+  --ifm-color-primary-light: #1af4ff;
+  --ifm-color-primary-lighter: #26f5ff;
+  --ifm-color-primary-lightest: #4df6ff;
+  --ifm-background-color: #1a1b1e;
+  --ifm-background-surface-color: #222327;
+  --ifm-navbar-background-color: rgba(26, 27, 30, 0.8);
+  --ifm-toc-border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Styles minimaux pour la documentation */
+.theme-doc-markdown {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.theme-doc-markdown h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+}
+
+/* Navigation latérale */
+.theme-doc-sidebar-container {
+  background: linear-gradient(180deg,
+    var(--ifm-background-surface-color) 0%,
+    var(--ifm-background-color) 100%
+  );
+  border-right: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+/* Table des matières */
+.table-of-contents {
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 996px) {
+  .theme-doc-markdown h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Style pour le footer */
+.footer {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  background: var(--ifm-footer-background-color) !important;
+  background-color: var(--ifm-footer-background-color) !important;
+  backdrop-filter: blur(15px) !important;
+  border-top: 1px solid rgba(79, 172, 254, 0.15);
+  padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Style des colonnes du footer */
+.footer__col {
+  margin-bottom: 2rem;
+}
+
+/* Titre des sections du footer */
+.footer__title {
+  color: var(--ifm-footer-title-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* Liste des liens */
+.footer__items {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+  position: relative;
+}
+
+/* Style des liens */
+.footer__item {
+  position: relative;
+  margin: 0.5rem 0;
+  transform-origin: left center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer__link-item {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  position: relative;
+  transform-origin: left center;
+}
+
+/* Trait horizontal au survol */
+.footer__link-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ifm-footer-link-color), var(--ifm-footer-title-color));
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+}
+
+/* Animation du trait et zoom au survol */
+.footer__link-item:hover {
+  color: var(--ifm-footer-link-color);
+  text-decoration: none;
+  transform: translateX(5px) scale(1.25);
+  font-weight: 500;
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.7);
+}
+
+.footer__link-item:hover::after {
+  width: 100%;
+}
+
+/* Style du copyright */
+.footer__copyright {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(79, 172, 254, 0.2);
+  text-shadow: 0 0 5px rgba(0, 242, 254, 0.3);
+}
+
+/* Responsive footer */
+@media (max-width: 996px) {
+  .footer {
+    padding: 2rem 1rem;
+  }
+  
+  .footer__title {
+    font-size: 1.1rem;
+  }
+  
+  .footer__copyright {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Supprime explicitement la classe footer--dark */
+.footer.footer--dark {
+  --ifm-footer-background-color: rgba(8, 11, 15, 0.95) !important;
+  background: var(--ifm-footer-background-color) !important;
+  background-color: var(--ifm-footer-background-color) !important;
+}
+
+/* Force le style même avec d'autres classes */
+footer[class*="footer"] {
+  background: rgba(8, 11, 15, 0.95) !important;
+  background-color: rgba(8, 11, 15, 0.95) !important;
+}
+
+/* Masquer le footer de la documentation */
+footer.theme-doc-footer.docusaurus-mt-lg {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  overflow: hidden !important;
+}
+
+/* S'assurer que le footer est masqué même avec d'autres classes */
+[class*="theme-doc-footer"][class*="docusaurus-mt-lg"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Masquer également le conteneur parent si nécessaire */
+.theme-doc-footer-wrapper {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Style amélioré pour la sidebar - Version Pro */
+.menu__link {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  margin: 4px 0;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet de brillance au survol */
+.menu__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(var(--ifm-color-primary-rgb), 0.2),
+    transparent
+  );
+  transition: 0.5s ease;
+}
+
+.menu__link:hover::before {
+  left: 100%;
+}
+
+/* Style de l'élément actif dans la sidebar */
+.menu__link--active {
+  font-weight: 700;
+  transform: scale(1.05);
+  padding-left: 1.5rem;
+  margin-left: -0.5rem;
+  letter-spacing: 0.3px;
+}
+
+/* Style spécifique pour le mode sombre */
+[data-theme='dark'] .menu__link--active {
+  background: linear-gradient(135deg,
+    rgba(0, 243, 255, 0.3) 0%,
+    rgba(0, 243, 255, 0.1) 100%
+  ) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(0, 243, 255, 0.15),
+              0 0 30px rgba(0, 243, 255, 0.1);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+/* Style spécifique pour le mode clair */
+[data-theme='light'] .menu__link--active {
+  background: linear-gradient(135deg,
+    rgba(0, 112, 243, 0.12) 0%,
+    rgba(0, 112, 243, 0.05) 100%
+  ) !important;
+  color: var(--ifm-color-primary-darkest) !important;
+  box-shadow: 0 2px 12px rgba(0, 112, 243, 0.08);
+  border: 1px solid rgba(0, 112, 243, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+[data-theme='light'] .menu__link--active:hover {
+  background: linear-gradient(135deg,
+    rgba(0, 112, 243, 0.15) 0%,
+    rgba(0, 112, 243, 0.08) 100%
+  ) !important;
+}
+
+/* Effet au survol des liens de la sidebar */
+.menu__link:hover {
+  transform: translateX(4px) scale(1.02);
+  background: linear-gradient(90deg,
+    rgba(var(--ifm-color-primary-rgb), 0.15) 0%,
+    rgba(var(--ifm-color-primary-rgb), 0.05) 100%
+  );
+}
+
+/* Icône indicatrice améliorée pour l'élément actif */
+.menu__link--active::after {
+  content: '›';
+  position: absolute;
+  right: 1rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  opacity: 0.8;
+  transform: translateY(-50%);
+  top: 50%;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Style du conteneur de la sidebar */
+.theme-doc-sidebar-container {
+  background: linear-gradient(180deg,
+    var(--ifm-background-surface-color) 0%,
+    var(--ifm-background-color) 100%
+  );
+  border-right: 1px solid rgba(var(--ifm-color-primary-rgb), 0.1);
+}
+
+/* Style des catégories */
+.menu__list-item-collapsible {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Modification du style pour le mode clair */
+[data-theme='light'] .menu__list-item-collapsible {
+  background: transparent;  /* Supprime le background existant */
+}
+
+[data-theme='light'] .menu__list-item-collapsible .menu__link {
+  color: var(--ifm-color-primary-darkest);  /* Couleur plus foncée pour le texte */
+  font-weight: 600;  /* Texte plus gras */
+}
+
+[data-theme='light'] .menu__list-item-collapsible:hover {
+  background: rgba(0, 0, 0, 0.05);  /* Fond légèrement gris au survol */
+}
+
+[data-theme='light'] .menu__list-item-collapsible--active {
+  background: rgba(var(--ifm-color-primary-rgb), 0.1);  /* Fond légèrement coloré pour l'élément actif */
+}
+
+/* Animation pour les sous-menus */
+.menu__list {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu__list-item--collapsed .menu__list {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+/* Effet de profondeur pour les niveaux */
+.menu__list .menu__list {
+  margin-left: 1rem;
+  border-left: 2px solid rgba(var(--ifm-color-primary-rgb), 0.1);
+  padding-left: 1rem;
+}
+
+/* Modification des couleurs pour le mode clair */
+[data-theme='light'] .menu__link--sublist {
+  color: var(--ifm-color-primary-darker);
+}
+
+[data-theme='light'] .menu__list-item-collapsible {
+  color: var(--ifm-color-primary-darker);
+}

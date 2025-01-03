@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Corps du serpent -->
+  <path d="M256 40c-70 0-120 30-140 90c-20 60-20 120 0 180c30 90 90 120 140 120c50 0 110-30 140-120c20-60 20-120 0-180c-20-60-70-90-140-90z" 
+    fill="url(#snake_body)"/>
+  
+  <!-- Tête du serpent (plus grosse) -->
+  <path d="M256 140c-40 0-70 30-70 70s30 70 70 70s70-30 70-70s-30-70-70-70z"
+    fill="#111827"/>
+  
+  <!-- Yeux brillants (plus gros) -->
+  <circle cx="230" cy="190" r="15" fill="#00f2fe"/>
+  <circle cx="282" cy="190" r="15" fill="#00f2fe"/>
+  
+  <!-- Reflet dans les yeux -->
+  <circle cx="225" cy="185" r="5" fill="white" opacity="0.8"/>
+  <circle cx="277" cy="185" r="5" fill="white" opacity="0.8"/>
+  
+  <!-- Langue bifide plus visible -->
+  <path d="M256 220l-30 40m30-40l30 40m-30-40v30" 
+    stroke="#ff3e3e" 
+    stroke-width="8" 
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+  
+  <!-- Écailles détaillées -->
+  <g opacity="0.4">
+    <path d="M200 120c20-15 40-15 60 0m-60 30c20-15 40-15 60 0m-60 30c20-15 40-15 60 0" 
+      stroke="white" 
+      stroke-width="3"/>
+  </g>
+  
+  <!-- Dégradés -->
+  <defs>
+    <linearGradient id="snake_body" x1="0" y1="0" x2="512" y2="512">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="50%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Effet de lueur -->
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+    <feMerge>
+      <feMergeNode in="coloredBlur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+</svg>

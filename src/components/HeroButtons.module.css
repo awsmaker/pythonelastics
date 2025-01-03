@@ -1,0 +1,302 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  padding: 4rem 2rem;
+  margin-top: -2rem;
+  z-index: 20;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  perspective: 1500px;
+}
+
+.heroButton {
+  position: relative;
+  background: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  padding: 2.5rem;
+  cursor: pointer;
+  text-align: left;
+  min-width: 380px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Effet de brillance amélioré */
+.heroButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(79, 172, 254, 0.1) 45%,
+    rgba(0, 242, 254, 0.3) 50%,
+    rgba(79, 172, 254, 0.1) 55%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+
+.heroButton:hover::before {
+  transform: translateX(100%);
+}
+
+/* Bordure lumineuse améliorée */
+.heroButton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00f2fe, #4facfe, #9333ea);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.heroButton:hover::after {
+  opacity: 1;
+}
+
+/* Style du texte amélioré */
+.heroButton span {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(0, 242, 254, 0.3));
+  transform: translateZ(20px);
+}
+
+.heroButton p {
+  font-size: 1.2rem;
+  margin: 0;
+  line-height: 1.6;
+  color: #e1e1e1;
+  opacity: 0.9;
+  transform: translateZ(10px);
+}
+
+/* Animation de flottement améliorée */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0);
+  }
+  50% {
+    transform: translateY(-10px) translateZ(20px) rotateX(2deg);
+  }
+  100% {
+    transform: translateY(0) translateZ(0) rotateX(0);
+  }
+}
+
+.heroButton:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.5),
+    0 0 50px rgba(79, 172, 254, 0.4);
+  animation: float 4s ease infinite;
+}
+
+/* Styles spécifiques pour chaque bouton */
+.buttonPrimary:hover {
+  background: rgba(0, 242, 254, 0.1);
+}
+
+.buttonSecondary {
+  cursor: pointer !important;
+}
+
+.buttonSecondary:hover {
+  background: rgba(79, 172, 254, 0.1);
+  cursor: pointer !important;
+}
+
+/* Effet de particules */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* Media Queries améliorées */
+@media (max-width: 1400px) {
+  .buttonWrapper {
+    gap: 2rem;
+  }
+  
+  .heroButton {
+    min-width: 320px;
+    padding: 2rem;
+  }
+  
+  .heroButton span {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .buttonWrapper {
+    flex-wrap: wrap;
+  }
+  
+  .heroButton {
+    min-width: 280px;
+    flex: 1 1 calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 2rem 1.5rem;
+  }
+  
+  .buttonWrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .heroButton {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .heroButton span {
+    font-size: 1.6rem;
+  }
+  
+  .heroButton p {
+    font-size: 1.1rem;
+  }
+}
+
+.comingSoon {
+  position: relative;
+  opacity: 0.85;
+  cursor: not-allowed !important;
+  overflow: visible !important;
+  filter: saturate(0.8);
+}
+
+.comingSoonBadge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: rgba(147, 51, 234, 0.95);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid rgba(147, 51, 234, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  animation: badgePulse 2s infinite;
+  z-index: 2;
+}
+
+.lockIcon {
+  font-size: 1rem;
+  color: white;
+}
+
+.priceTag {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #9333ea, #4facfe);
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
+}
+
+/* Animation du badge */
+@keyframes badgePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+}
+
+.comingSoon:hover .comingSoonBadge {
+  background: rgba(147, 51, 234, 1);
+  border-color: rgba(147, 51, 234, 0.5);
+}
+
+/* Ajustement mobile */
+@media (max-width: 768px) {
+  .comingSoonBadge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    top: -10px;
+    right: -10px;
+  }
+  
+  .lockIcon {
+    font-size: 0.9rem;
+  }
+  
+  .priceTag {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+  }
+}
+
+/* Style spécifique pour le bouton secondaire avec priorité élevée */
+.buttonSecondary.heroButton {
+  cursor: pointer !important;
+  z-index: 2 !important;
+  pointer-events: auto !important;
+}
+
+.buttonSecondary.heroButton:hover {
+  background: rgba(79, 172, 254, 0.1) !important;
+  cursor: pointer !important;
+}
+
+/* Assurer que les éléments internes sont cliquables */
+.buttonSecondary.heroButton * {
+  pointer-events: none !important;
+} 

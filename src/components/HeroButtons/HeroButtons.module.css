@@ -1,0 +1,47 @@
+/* filepath: src/components/HeroButtons/HeroButtons.module.css */
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.heroButton {
+  background: rgba(255, 255, 255, 0.1); /* Transparent feel */
+  color: #ffffff; /* White text to contrast */
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.heroButton span {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.heroButton p {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+.heroButton:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Subtle glow effect */
+}
+
+@media (max-width: 768px) {
+  .buttonWrapper {
+    flex-direction: column;
+  }
+}

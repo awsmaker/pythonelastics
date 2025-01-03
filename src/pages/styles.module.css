@@ -1,0 +1,215 @@
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  padding-bottom: var(--ifm-footer-padding-vertical);
+}
+
+.contentContainer {
+  position: relative;
+  z-index: 1;
+  height: calc(100vh - var(--ifm-footer-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.heroContainer {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.heroTitle {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.mainTitle {
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.gradientText {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 50%, #9333ea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+  filter: drop-shadow(0 2px 4px rgba(0, 242, 254, 0.3));
+  text-transform: uppercase;
+}
+
+.salaryText {
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  font-weight: 900;
+  background: linear-gradient(to right, #f7ff00, #db36a4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(247, 255, 0, 0.4);
+  animation: pulse 2s infinite;
+  line-height: 1;
+  letter-spacing: -1px;
+  padding: 0.5rem 0;
+}
+
+.yearText {
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  color: #4facfe;
+  text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(139, 233, 253, 0.5);
+  margin-bottom: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.subtitleLine {
+  margin-bottom: 1rem;
+}
+
+.subtitleLine:first-child {
+  font-weight: 800;
+  font-size: 1.2em; /* 20% plus grand que le texte parent */
+}
+
+.subtitleMain {
+  font-weight: 800;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.topSection {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.3);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.highlightText {
+  color: #00f2fe;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  display: inline-block;
+}
+
+.salaryBox {
+  background: rgba(13, 17, 23, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 2.5rem 4rem;
+  border-radius: 25px;
+  border: 2px solid rgba(79, 172, 254, 0.3);
+  box-shadow: 
+    0 0 30px rgba(0, 242, 254, 0.15),
+    inset 0 0 20px rgba(0, 242, 254, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.salaryBox:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 40px rgba(0, 242, 254, 0.2),
+    inset 0 0 25px rgba(0, 242, 254, 0.15);
+  border-color: rgba(79, 172, 254, 0.4);
+}
+
+.salaryIntro {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(139, 233, 253, 0.4);
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Ajustements pour les petits écrans */
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: 1rem;
+    gap: 3rem;
+  }
+
+  .topSection {
+    margin-top: 1rem;
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+  }
+
+  .heroTitle {
+    margin-top: 2rem;
+  }
+
+  .salaryBox {
+    padding: 2rem 2.5rem;
+  }
+
+  .titleWrapper {
+    gap: 1.5rem;
+  }
+
+  .gradientText {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .salaryIntro {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  }
+} 
