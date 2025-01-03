@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 title: Introduction à Python
 description: Découvrez pourquoi Python est le langage idéal pour débuter en programmation
 ---

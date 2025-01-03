@@ -160,6 +160,7 @@
   perspective: 1000px;
 }
 
+
 /* Footer impressionnant */
 .footer {
   position: relative;
@@ -671,3 +672,4 @@
   box-shadow: 0 0 10px var(--ifm-footer-link-color);
   animation: footerParticles 1.5s ease-out infinite;
 }
+

@@ -1,0 +1,42 @@
+import { useState, useEffect } from 'react';
+
+const WindowSize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    function updateSize() {
+      setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
+    }
+
+    // Ajouter l'écouteur d'événement
+    window.addEventListener('resize', updateSize);
+    // Appel initial
+    updateSize();
+
+    // Log pour vérifier que le composant est monté
+    console.log('WindowSize component mounted');
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  return (
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      width: '100%',
+      background: '#000',
+      color: '#fff',
+      textAlign: 'center',
+      padding: '10px',
+      fontWeight: 'bold',
+      fontSize: '20px'
+    }}>
+      Largeur: {width}px | Hauteur: {height}px
+    </div>
+  );
+};
+
+export default WindowSize; 

@@ -1,5 +1,7 @@
 ---
+sidebar_position: 2
 title: 01 Semaine 01 Revision Structures Base
+description: Découvrez pourquoi Python est le langage idéal pour débuter en programmation
 ---
 
 ### Objectifs :

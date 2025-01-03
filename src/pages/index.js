@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Starfield from '../components/Starfield';
 import HeroButtons from '@site/src/components/HeroButtons';
 import styles from './styles.module.css';
+import WindowSize from '../components/WindowSize';
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
             className={styles.contentWrapper}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 3 }}
           >
             <motion.div
               initial={{ scale: 0.8, y: 30 }}
@@ -24,7 +25,7 @@ export default function Home() {
                 type: "spring",
                 stiffness: 200,
                 damping: 20,
-                delay: 0.2 
+                delay: 0.2
               }}
               className={styles.topSection}
             >
@@ -77,6 +78,8 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </div>
+
+        <WindowSize />
       </div>
     </Layout>
   );
