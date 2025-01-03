@@ -80,6 +80,16 @@ const config: Config = {
           position: 'left',
           label: 'Tutorial',
         },
+        {
+          to: '/docs/bases-python/introduction',
+          label: 'Bases de python',
+          position: 'left',
+        },
+        {
+          to: '/docs/concepts-avances/introduction',
+          label: 'Concepts Avancés',
+          position: 'left',
+        },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
           href: 'https://github.com/facebook/docusaurus',
