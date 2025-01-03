@@ -1,0 +1,29 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            # 1) Installation des dépendances
+            - npm ci
+        build:
+          commands:
+            # 2) Génération du build
+            - npm run build
+      artifacts:
+        # 3) Dossier où Amplify ira récupérer les fichiers statiques
+        baseDirectory: build
+        files:
+          - '**/*'
+      cache:
+        # 4) Configuration du cache pour accélérer les builds
+        paths:
+          - node_modules/**/*
+      customHeaders:
+        # 5) Configuration des en-têtes HTTP (caching, sécurité)
+        - pattern: "**/*"
+          headers:
+            - key: "Cache-Control"
+              value: "max-age=86400" # ou 1 jour
+            - key: "Strict-Transport-Security"
+              value: "max-age=63072000; includeSubDomains; preload"
