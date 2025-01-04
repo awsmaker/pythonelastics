@@ -1,9 +1,8 @@
 function App() {
   return (
-    <div>
-      <div>
-        <h1>Mon Application</h1>
-      </div>
+    <div style={{ padding: '20px' }}>
+      <h1>Test</h1>
+      <p>Si vous voyez ce message, l'application fonctionne.</p>
     </div>
   );
 }

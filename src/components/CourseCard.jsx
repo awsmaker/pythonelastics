@@ -1,21 +1,14 @@
 import React from 'react';
+import styles from './CourseCard.module.css';
 
-export default function CourseCard({title, description, link}) {
+const CourseCard = ({ title, description }) => {
   return (
-    <div className="card">
-      <div className="card__header">
-        <h3>{title}</h3>
-      </div>
-      <div className="card__body">
-        <p>{description}</p>
-      </div>
-      {link && (
-        <div className="card__footer">
-          <a className="button button--primary" href={link}>
-            En savoir plus
-          </a>
-        </div>
-      )}
+    <div className={styles.card}>
+      <h3 className={styles.title}>{title}</h3>
+      <p className={styles.description}>{description}</p>
+      <button className={styles.button}>En savoir plus</button>
     </div>
   );
-} 
+};
+
+export default CourseCard; 

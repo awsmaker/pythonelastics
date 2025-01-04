@@ -1,20 +1,15 @@
-// filepath: src/pages/index.tsx
 import React from 'react';
-import Layout from '@theme/Layout';
-import HeroButtons from './HeroButtons'; // Import the HeroButtons component
+import styles from './HeroButtons.module.css';
 
-function Home(): JSX.Element {
+const HeroButtons: React.FC = () => {
   return (
-    <Layout>
-      <header className="hero hero--primary">
-        <div className="container">
-          <h1 className="hero__title">Welcome to My Docusaurus Site</h1>
-          <p className="hero__subtitle">This is a subtitle</p>
-          <HeroButtons /> {/* Use the HeroButtons component */}
-        </div>
-      </header>
-    </Layout>
+    <div className={styles.buttonWrapper}>
+      <button className={styles.button}>Button 1</button>
+      <button className={styles.button}>Button 2</button>
+      <button className={styles.button}>Button 3</button>
+      <button className={styles.button}>Button 4</button>
+    </div>
   );
-}
+};
 
-export default Home;
+export default HeroButtons;

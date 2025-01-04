@@ -1,0 +1,27 @@
+---
+sidebar_position: 2
+---
+
+import CourseCard from '@site/src/components/CourseCard';
+
+# Formations Python
+
+<div className="container">
+  <div className="row">
+    {[
+      {
+        title: "Introduction à la Programmation",
+        description: "Plongez dans le monde du code avec une initiation complète et accessible. Apprenez à penser comme un développeur et réalisez votre premier programme Python."
+      },
+      {
+        title: "Bases Python",
+        description: "Découvrez les fondamentaux de Python : variables, conditions, boucles et fonctions. Posez les bases solides de vos futurs projets."
+      },
+      // ... autres cours
+    ].map((course, idx) => (
+      <div key={idx} className="col col--4 margin-bottom--lg">
+        <CourseCard {...course} />
+      </div>
+    ))}
+  </div>
+</div> 
